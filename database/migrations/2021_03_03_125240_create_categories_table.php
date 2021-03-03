@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersHkhkjhk extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,14 @@ class CreateUsersHkhkjhk extends Migration
      */
     public function up()
     {
-        Schema::create('users_hkhkjhk', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
+			$table->string('title');
+			$table->string('slug')->unique();
+			$table->integer('parent_id')->nullable();
+			$table->tinyInteger('published')->nullable();
+			$table->integer('created_by')->nullable();
+			$table->integer('modified_by')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateUsersHkhkjhk extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_hkhkjhk');
+        Schema::dropIfExists('categories');
     }
 }

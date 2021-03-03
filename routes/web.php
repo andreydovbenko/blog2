@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']], function(){
  Route::get('/', [App\Http\Controllers\Admin\DashboardController:: class, 'dashboard'])->name('admin.index');
+ Route::resource('/category', 'CategoryController', ['use'=>'admin']);
 });
 
 Route::get('/', function () {
