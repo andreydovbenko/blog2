@@ -12,7 +12,8 @@
 
   <hr>
 
-  <a href="{{route('admin.category.index')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o"></i> Создать категорию</a>
+  <a href="{{route('admin.category.create')}}" class="btn btn-primary pull-right"><i 
+  class="fa fa-plus-square-o"></i> Создать категорию</a>
   <table class="table table-striped">
     <thead>
       <th>Наименование</th>
@@ -25,7 +26,7 @@
           <td>{{$category->title}}</td>
           <td>{{$category->published}}</td>
           <td>
-            <a href="{{route('admin.category.edit', ['id'=>$category->id])}}"><i class="fa fa-edit"></i></a>
+            <a href="{{route('admin.category.edit', $category->id)}}"><i class="fa fa-edit"></i></a>
           </td>
         </tr>
       @empty
